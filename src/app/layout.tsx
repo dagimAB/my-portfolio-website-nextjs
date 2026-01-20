@@ -28,6 +28,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="stylesheet"
+          href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+        />
+        <link
+          rel="stylesheet"
+          href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+        />
+        <link rel="stylesheet" href="/assets/css/main.css" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

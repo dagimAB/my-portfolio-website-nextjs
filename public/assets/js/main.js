@@ -96,13 +96,15 @@
   const selectTyped = document.querySelector(".typed");
   if (selectTyped) {
     let typed_strings = selectTyped.getAttribute("data-typed-items");
-    typed_strings = typed_strings.split(",");
+    typed_strings = typed_strings.split(",").map((s) => s.trim());
     new Typed(".typed", {
       strings: typed_strings,
       loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000,
+      typeSpeed: 80,
+      backSpeed: 40,
+      backDelay: 1400,
+      smartBackspace: false,
+      showCursor: true,
     });
   }
 
@@ -152,7 +154,7 @@
           layoutMode: layout,
           filter: filter,
           sortBy: sort,
-        }
+        },
       );
     });
 
@@ -173,7 +175,7 @@
               aosInit();
             }
           },
-          false
+          false,
         );
       });
   });
@@ -184,7 +186,7 @@
   function initSwiper() {
     document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
       let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
+        swiperElement.querySelector(".swiper-config").innerHTML.trim(),
       );
 
       if (swiperElement.classList.contains("swiper-tab")) {

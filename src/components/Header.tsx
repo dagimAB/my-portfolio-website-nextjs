@@ -3,7 +3,8 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="header dark-background d-flex flex-column">
+    <header id="header" className="header dark-background d-flex flex-column">
+      <i className="header-toggle d-xl-none bi bi-list"></i>
       <div className="profile-img">
         <img
           src="/assets/img/my-profile-img.jpg"

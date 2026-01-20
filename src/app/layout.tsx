@@ -37,6 +37,10 @@ export default function RootLayout({
           rel="stylesheet"
           href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
         />
+        <link
+          rel="stylesheet"
+          href="/assets/vendor/swiper/swiper-bundle.min.css"
+        />
         <link rel="stylesheet" href="/assets/css/main.css" />
       </head>
       <body
@@ -82,6 +86,7 @@ export default function RootLayout({
         />
         <Script src="/assets/js/main.js" strategy="afterInteractive" />
         <Script src="/assets/js/contact.js" strategy="afterInteractive" />
+        <Script src="/assets/js/testimonials.js" strategy="afterInteractive" />
       </body>
     </html>
   );

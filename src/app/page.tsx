@@ -426,7 +426,7 @@ export default function Home() {
       </section>
       <!-- /Services Section -->
 
-      {/* Testimonials Section commented out temporarily — restore real data later */}
+      <!-- Testimonials section temporarily removed - restore real data later -->
 
       <!-- Contact Section -->
         <div class="container section-title text-center mb-5" data-aos="fade-up">

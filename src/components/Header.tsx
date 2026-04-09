@@ -21,19 +21,44 @@ export default function Header() {
       </Link>
 
       <div className="social-links text-center">
-        <a href="https://x.com/dagim79" className="twitter">
+        <a
+          href="https://x.com/dagim79"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="twitter"
+        >
           <i className="bi bi-twitter-x"></i>
         </a>
-        <a href="https://www.facebook.com/" className="facebook">
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="facebook"
+        >
           <i className="bi bi-facebook"></i>
         </a>
-        <a href="https://www.instagram.com/" className="instagram">
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="instagram"
+        >
           <i className="bi bi-instagram"></i>
         </a>
-        <a href="https://www.linkedin.com/feed/" className="linkedin">
+        <a
+          href="https://www.linkedin.com/in/dagim-abraham"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="linkedin"
+        >
           <i className="bi bi-linkedin"></i>
         </a>
-        <a href="https://github.com/dagimAB" className="linkedin">
+        <a
+          href="https://github.com/dagimAB"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="linkedin"
+        >
           <i className="bi bi-github"></i>
         </a>
       </div>

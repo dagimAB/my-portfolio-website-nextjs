@@ -13,19 +13,36 @@ export default function Footer() {
               the digital world.
             </p>
             <div className="social-links d-flex mt-4">
-              <a href="https://x.com/dagim79" className="icon-link me-2">
+              <a
+                href="https://x.com/dagim79"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="icon-link me-2"
+              >
                 <i className="bi bi-twitter-x"></i>
               </a>
-              <a href="https://www.facebook.com/" className="icon-link me-2">
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="icon-link me-2"
+              >
                 <i className="bi bi-facebook"></i>
               </a>
               <a
-                href="https://www.linkedin.com/feed/"
+                href="https://www.linkedin.com/in/dagim-abraham"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="icon-link me-2"
               >
                 <i className="bi bi-linkedin"></i>
               </a>
-              <a href="https://github.com/dagimAB" className="icon-link me-2">
+              <a
+                href="https://github.com/dagimAB"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="icon-link me-2"
+              >
                 <i className="bi bi-github"></i>
               </a>
             </div>

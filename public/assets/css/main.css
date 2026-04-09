@@ -212,16 +212,16 @@ h6 {
   background: var(--accent-color);
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .header ~ main,
   .header ~ #footer {
     margin-left: 300px;
   }
 }
 
-/* Force main spacing to avoid overlap in case sibling selector isn't applied
+/* Force main spacing to avoid overlap in case sibling selector isn't applied   
    (ensures sidebar doesn't overlap content) */
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   main.main,
   .main {
     margin-left: 300px !important;

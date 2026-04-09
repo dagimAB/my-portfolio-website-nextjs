@@ -42,3 +42,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 Alternatively, Vercel provides first-class support for Next.js and is recommended for frictionless deployment.
 
 Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+---
+
+_Updated locally in the workspace by GitHub Copilot._

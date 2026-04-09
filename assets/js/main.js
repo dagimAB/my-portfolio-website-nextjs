@@ -91,20 +91,9 @@
   window.addEventListener("load", aosInit);
 
   /**
-   * Init typed.js
+   * Typed header animation
    */
-  const selectTyped = document.querySelector(".typed");
-  if (selectTyped) {
-    let typed_strings = selectTyped.getAttribute("data-typed-items");
-    typed_strings = typed_strings.split(",");
-    new Typed(".typed", {
-      strings: typed_strings,
-      loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000,
-    });
-  }
+  // Typing animation has been moved to React component (page.tsx) to prevent Next.js hydration issues and duplicate running.
 
   /**
    * Initiate Pure Counter
@@ -152,7 +141,7 @@
           layoutMode: layout,
           filter: filter,
           sortBy: sort,
-        }
+        },
       );
     });
 
@@ -173,7 +162,7 @@
               aosInit();
             }
           },
-          false
+          false,
         );
       });
   });
@@ -184,7 +173,7 @@
   function initSwiper() {
     document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
       let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
+        swiperElement.querySelector(".swiper-config").innerHTML.trim(),
       );
 
       if (swiperElement.classList.contains("swiper-tab")) {

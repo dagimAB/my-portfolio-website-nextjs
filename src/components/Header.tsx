@@ -65,23 +65,30 @@ export default function Header() {
               <i className="bi bi-hdd-stack navicon"></i> Services
             </a>
           </li>
+          {/* 
           <li>
             <a href="#testimonials">
-              <i className="bi bi-quote navicon"></i> Testimonials{" "}
+              <i className="bi bi-quote navicon"></i> Testimonials{" "}    
             </a>
-          </li>
+          </li> 
+          */}
+          {/*
           <li className="dropdown">
-            <a href="#">
+            <button
+              type="button"
+              className="dropdown-toggle d-flex align-items-center"
+            >
               <i className="bi bi-menu-button navicon"></i>{" "}
               <span>Dropdown</span>{" "}
               <i className="bi bi-chevron-down toggle-dropdown"></i>
-            </a>
+            </button>
             <ul>
               <li>
                 <a href="#">Dropdown 1</a>
               </li>
             </ul>
           </li>
+          */}
           <li>
             <a href="#contact">
               <i className="bi bi-envelope navicon"></i> Contact

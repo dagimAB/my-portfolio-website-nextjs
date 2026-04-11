@@ -24,7 +24,16 @@ export default function Contact() {
         toast.success("Your message has been sent successfully!");
         (e.target as HTMLFormElement).reset();
       } else {
-        toast.error("Failed to send message. Please try again.");
+        let errorMessage = "Failed to send message. Please try again.";
+        try {
+          const json = await res.json();
+          if (json?.error) {
+            errorMessage = json.error;
+          }
+        } catch {
+          // ignore parse errors
+        }
+        toast.error(errorMessage);
       }
     } catch (err) {
       toast.error("An error occurred. Please try again later.");

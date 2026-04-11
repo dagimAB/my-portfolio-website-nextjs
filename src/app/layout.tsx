@@ -85,7 +85,6 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         <Script src="/assets/js/main.js" strategy="afterInteractive" />
-        <Script src="/assets/js/contact.js" strategy="afterInteractive" />
         <Script src="/assets/js/testimonials.js" strategy="afterInteractive" />
       </body>
     </html>

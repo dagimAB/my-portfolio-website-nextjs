@@ -29,7 +29,7 @@ export default function About() {
               <h2 className="section-title text-md-start mb-3">About Me</h2>
 
               <p className="lead text-md-start mb-4">
-                I'm Dagim Abraham, a 23-year-old Full-Stack Engineer with a
+                I&apos;m Dagim Abraham, a 23-year-old Full-Stack Engineer with a
                 passion for building modern, scalable web and mobile
                 applications. As a 4th year Software Engineering student at
                 Addis Ababa Science And Technology University (AASTU), I am

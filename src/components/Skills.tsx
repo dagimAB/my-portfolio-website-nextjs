@@ -125,14 +125,14 @@ export default function Skills() {
                 <div className="d-flex align-items-center mb-2">
                   <i className="bi bi-diagram-2 fs-4 me-2 text-success"></i>
                   <h6 className="mb-0 me-auto">Node.js</h6>
-                  <span className="fw-bold">85%</span>
+                  <span className="fw-bold">95%</span>
                 </div>
                 <div className="progress" style={{ height: "10px" }}>
                   <div
                     className="progress-bar custom-gradient-progress"
                     role="progressbar"
-                    style={{ width: "85%" }}
-                    aria-valuenow={85}
+                    style={{ width: "95%" }}
+                    aria-valuenow={95}
                     aria-valuemin={0}
                     aria-valuemax={100}
                   ></div>

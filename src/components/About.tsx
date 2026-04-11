@@ -31,9 +31,10 @@ export default function About() {
               <p className="lead text-md-start mb-4">
                 I'm Dagim Abraham, a 23-year-old Full-Stack Engineer with a
                 passion for building modern, scalable web and mobile
-                applications. As a 4th year Software Engineering student at UV,
-                I am actively seeking opportunities to apply my technical skills
-                to real-world challenges.
+                applications. As a 4th year Software Engineering student at
+                Addis Ababa Science And Technology University (AASTU), I am
+                actively seeking opportunities to apply my technical skills to
+                real-world challenges.
               </p>
               <p className="lead text-md-start mb-4">
                 I primarily work with the MERN stack (MongoDB, Express, React,

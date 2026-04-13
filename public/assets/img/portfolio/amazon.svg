@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600">
+  <defs><linearGradient id="amzbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f2f2f2"/><stop offset="100%" stop-color="#ececec"/></linearGradient></defs>
+  <rect width="100%" height="100%" fill="url(#amzbg)"/>
+  <rect width="100%" height="80" fill="#232f3e"/>
+  <path d="M 100 55 Q 150 75 200 45" stroke="#ff9900" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <text x="150" y="42" font-family="sans-serif" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">StoreFront</text>
+  <rect x="250" y="20" width="300" height="40" rx="5" fill="#ffffff"/>
+  <rect x="510" y="20" width="40" height="40" rx="5" fill="#febd69"/>
+  <circle cx="530" cy="40" r="10" stroke="#333" stroke-width="3" fill="none" />
+  <line x1="537" y1="47" x2="545" y2="55" stroke="#333" stroke-width="3" stroke-linecap="round"/>
+  <rect x="100" y="120" width="180" height="220" rx="8" fill="#ffffff" stroke="#ddd" stroke-width="2"/>
+  <rect x="120" y="140" width="140" height="120" fill="#00a8e1" opacity="0.8"/>
+  <rect x="120" y="280" width="100" height="15" fill="#333333"/>
+  <rect x="120" y="305" width="50" height="15" fill="#b12704"/>
+  <rect x="310" y="120" width="180" height="220" rx="8" fill="#ffffff" stroke="#ddd" stroke-width="2"/>
+  <rect x="330" y="140" width="140" height="120" fill="#ff9900" opacity="0.8"/>
+  <rect x="330" y="280" width="110" height="15" fill="#333333"/>
+  <rect x="330" y="305" width="60" height="15" fill="#b12704"/>
+  <rect x="520" y="120" width="180" height="220" rx="8" fill="#ffffff" stroke="#ddd" stroke-width="2"/>
+  <rect x="540" y="140" width="140" height="120" fill="#84c225" opacity="0.8"/>
+  <rect x="540" y="280" width="90" height="15" fill="#333333"/>
+  <rect x="540" y="305" width="40" height="15" fill="#b12704"/>
+  <rect x="100" y="370" width="600" height="180" rx="8" fill="#ffffff" stroke="#ddd" stroke-width="2"/>
+  <text x="130" y="415" font-family="sans-serif" font-size="24" font-weight="bold" fill="#333333">Deals of the Day</text>
+  <rect x="130" y="440" width="100" height="80" fill="#7a4579" opacity="0.4"/>
+  <rect x="250" y="440" width="100" height="80" fill="#1d81a2" opacity="0.4"/>
+  <rect x="370" y="440" width="100" height="80" fill="#005f73" opacity="0.4"/>
+  <rect x="490" y="440" width="100" height="80" fill="#9b2226" opacity="0.4"/>
+</svg>

@@ -8,26 +8,17 @@ export default function About() {
           <div className="col-lg-4 col-md-5 d-flex justify-content-center mb-4 mb-md-0">
             <Image
               src="/assets/img/my-profile-img.jpg"
-              className="img-fluid rounded-circle shadow-lg"
+              className="img-fluid rounded-circle shadow-lg custom-about-img"
               alt="Dagim Abraham"
               width={250}
               height={250}
-              style={{ objectFit: "cover", border: "6px solid #fff" }}
+              style={{ objectFit: "cover" }}
             />
           </div>
 
           <div className="col-lg-8 col-md-7">
-            <div
-              className="p-4 rounded-3 h-100 custom-about-bg"
-              style={
-                {
-                  "--bs-bg-opacity": 0.75,
-                  background: "linear-gradient(to right, #e0e0e0, #f8f8f8)",
-                } as React.CSSProperties
-              }
-            >
+            <div className="p-4 rounded-3 h-100 custom-about-bg">
               <h2 className="section-title text-md-start mb-3">About Me</h2>
-
               <p className="lead text-md-start mb-4">
                 I&apos;m Dagim Abraham, a 23-year-old Full-Stack Engineer with a
                 passion for building modern, scalable web and mobile

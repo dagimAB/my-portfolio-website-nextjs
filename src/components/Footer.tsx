@@ -30,6 +30,14 @@ export default function Footer() {
                 <i className="bi bi-facebook"></i>
               </a>
               <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="icon-link me-2"
+              >
+                <i className="bi bi-instagram"></i>
+              </a>
+              <a
                 href="https://www.linkedin.com/in/dagim-abraham"
                 target="_blank"
                 rel="noopener noreferrer"

@@ -27,8 +27,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme');
+                  var supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  if (theme === 'dark' || (!theme && supportDarkMode)) {        
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                  } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
         <link
           rel="stylesheet"
           href="/assets/vendor/bootstrap/css/bootstrap.min.css"
@@ -49,6 +66,13 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+
+        <a
+          href="#"
+          className="scroll-top d-flex align-items-center justify-content-center"
+        >
+          <i className="bi bi-arrow-up-short"></i>
+        </a>
 
         {/* Vendor scripts (loaded after interactive) */}
         <Script

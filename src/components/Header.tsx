@@ -1,10 +1,60 @@
 "use client";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+
+const navItems = [
+  { href: "#hero", label: "Home", icon: "bi bi-house" },
+  { href: "#about", label: "About", icon: "bi bi-person" },
+  { href: "#skills", label: "Skills", icon: "bi bi-code-slash" },
+  { href: "#portfolio", label: "Portfolio", icon: "bi bi-images" },
+  { href: "#services", label: "Services", icon: "bi bi-hdd-stack" },
+  { href: "#contact", label: "Contact", icon: "bi bi-envelope" },
+];
 
 export default function Header() {
+  const [activeLink, setActiveLink] = useState("#hero");
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    // Initialize theme state
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    if (currentTheme) setTheme(currentTheme);
+
+    const sectionElements = navItems
+      .map((item) => document.querySelector(item.href))
+      .filter(Boolean) as HTMLElement[];
+
+    const handleScroll = () => {
+      let currentSection = "#hero";
+      // Offset defines where we consider the active section (e.g., middle of screen)
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+      for (let i = sectionElements.length - 1; i >= 0; i--) {
+        const section = sectionElements[i];
+        if (section.offsetTop <= scrollPosition) {
+          currentSection = `#${section.id}`;
+          break;
+        }
+      }
+      setActiveLink(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    // Initial check
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleNavClick = (href: string) => () => {
+    setActiveLink(href);
+  };
+
   return (
     <header id="header" className="header dark-background d-flex flex-column">
-      <i className="header-toggle d-xl-none bi bi-list"></i>
+      <i className="header-toggle d-md-none bi bi-list"></i>
       <div className="profile-img">
         <img
           src="/assets/img/my-profile-img.jpg"
@@ -17,107 +67,62 @@ export default function Header() {
         href="/"
         className="logo d-flex align-items-center justify-content-center"
       >
-        <h1 className="sitename">Dagim Abraham</h1>
+        <img
+          src="/assets/img/Dagim_logo.png"
+          alt="Dagim logo"
+          className="img-fluid logo-img"
+          style={{
+            maxHeight: "125px",
+            height: "auto",
+            width: "auto",
+            margin: 0,
+            padding: 0,
+          }}
+        />
       </Link>
-
-      <div className="social-links text-center">
-        <a
-          href="https://x.com/dagim79"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="twitter"
-        >
-          <i className="bi bi-twitter-x"></i>
-        </a>
-        <a
-          href="https://www.facebook.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="facebook"
-        >
-          <i className="bi bi-facebook"></i>
-        </a>
-        <a
-          href="https://www.instagram.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="instagram"
-        >
-          <i className="bi bi-instagram"></i>
-        </a>
-        <a
-          href="https://www.linkedin.com/in/dagim-abraham"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="linkedin"
-        >
-          <i className="bi bi-linkedin"></i>
-        </a>
-        <a
-          href="https://github.com/dagimAB"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="linkedin"
-        >
-          <i className="bi bi-github"></i>
-        </a>
-      </div>
 
       <nav id="navmenu" className="navmenu">
         <ul>
+          {navItems.map((item) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                className={activeLink === item.href ? "active" : ""}
+                onClick={handleNavClick(item.href)}
+              >
+                <i className={`${item.icon} navicon`}></i>
+                {item.label}
+              </a>
+            </li>
+          ))}
           <li>
-            <a href="#hero" className="active">
-              <i className="bi bi-house navicon"></i>Home
-            </a>
-          </li>
-          <li>
-            <a href="#about">
-              <i className="bi bi-person navicon"></i> About
-            </a>
-          </li>
-          <li>
-            <a href="#skills">
-              <i className="bi bi-code-slash navicon"></i> Skills
-            </a>
-          </li>
-          <li>
-            <a href="#portfolio">
-              <i className="bi bi-images navicon"></i> Portfolio
-            </a>
-          </li>
-          <li>
-            <a href="#services">
-              <i className="bi bi-hdd-stack navicon"></i> Services
-            </a>
-          </li>
-          {/* 
-          <li>
-            <a href="#testimonials">
-              <i className="bi bi-quote navicon"></i> Testimonials{" "}    
-            </a>
-          </li> 
-          */}
-          {/*
-          <li className="dropdown">
             <button
-              type="button"
-              className="dropdown-toggle d-flex align-items-center"
+              onClick={() => {
+                const newTheme = theme === "light" ? "dark" : "light";
+                setTheme(newTheme);
+                document.documentElement.setAttribute("data-theme", newTheme);
+                localStorage.setItem("theme", newTheme);
+              }}
+              className="theme-toggle-btn"
+              style={{
+                background: "none",
+                border: "none",
+                color: "var(--nav-color)",
+                padding: "10px 15px",
+                display: "flex",
+                alignItems: "center",
+                cursor: "pointer",
+                fontSize: "15px",
+              }}
+              title="Toggle Light/Dark Mode"
             >
-              <i className="bi bi-menu-button navicon"></i>{" "}
-              <span>Dropdown</span>{" "}
-              <i className="bi bi-chevron-down toggle-dropdown"></i>
+              <i
+                className={`bi ${theme === "light" ? "bi-moon-fill" : "bi-sun-fill"} navicon`}
+              ></i>
+              <span className="d-md-none mx-2">
+                {theme === "light" ? "Dark Mode" : "Light Mode"}
+              </span>
             </button>
-            <ul>
-              <li>
-                <a href="#">Dropdown 1</a>
-              </li>
-            </ul>
-          </li>
-          */}
-          <li>
-            <a href="#contact">
-              <i className="bi bi-envelope navicon"></i> Contact
-            </a>
           </li>
         </ul>
       </nav>

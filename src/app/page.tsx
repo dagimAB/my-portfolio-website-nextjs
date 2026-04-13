@@ -83,7 +83,8 @@ export default function Home() {
           alt="Hero Background"
         />
         <div className="container" data-aos="fade-up" data-aos-delay="100">
-          <h2>Dagim Abraham</h2>
+          <h2 className="text-white mb-2">Hi, I'm</h2>
+          <h2 className="hero-name">Dagim Abraham</h2>
           <p>
             <TypedEffect />
           </p>

@@ -16,8 +16,15 @@ export const metadata: Metadata = {
   title: "Dagim Abraham — Portfolio",
   description: "Dagim Abraham - Full-Stack Developer",
   icons: {
-    icon: "/assets/img/dagi_logo_transparent.png",
-    shortcut: "/assets/img/dagi_logo_transparent.png",
+    icon: [
+      { url: "/favicon.png", type: "image/png", sizes: "any" },
+      {
+        url: "/assets/img/dagi_logo_transparent.png",
+        type: "image/png",
+        sizes: "any",
+      },
+    ],
+    shortcut: "/favicon.png",
   },
 };
 
@@ -63,15 +70,15 @@ export default function RootLayout({
           href="/assets/vendor/swiper/swiper-bundle.min.css"
         />
         <link rel="stylesheet" href="/assets/css/main.css" />
+        <link rel="icon" type="image/png" sizes="any" href="/favicon.png" />
         <link
           rel="icon"
           type="image/png"
+          sizes="any"
           href="/assets/img/dagi_logo_transparent.png"
         />
-        <link
-          rel="shortcut icon"
-          href="/assets/img/dagi_logo_transparent.png"
-        />
+        <link rel="shortcut icon" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

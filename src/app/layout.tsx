@@ -70,15 +70,18 @@ export default function RootLayout({
           href="/assets/vendor/swiper/swiper-bundle.min.css"
         />
         <link rel="stylesheet" href="/assets/css/main.css" />
-        <link rel="icon" type="image/png" sizes="any" href="/favicon.png" />
+        <link rel="icon" href="/favicon.ico" />
         <link
           rel="icon"
           type="image/png"
           sizes="any"
           href="/assets/img/dagi_logo_transparent.png"
         />
-        <link rel="shortcut icon" href="/favicon.png" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          href="/assets/img/dagi_logo_transparent.png"
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

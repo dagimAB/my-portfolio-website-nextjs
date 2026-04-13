@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Dagim Abraham — Portfolio",
   description: "Dagim Abraham - Full-Stack Developer",
+  icons: {
+    icon: "/assets/img/dagi_logo_transparent.png",
+    shortcut: "/assets/img/dagi_logo_transparent.png",
+  },
 };
 
 import Header from "../components/Header";

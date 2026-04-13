@@ -1,3 +1,89 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
+const skillsData = [
+  { name: "React.js", icon: "bi bi-filetype-jsx", color: "text-primary", percentage: 90 },
+  { name: "Next.js", icon: "bi bi-filetype-jsx", color: "text-info", percentage: 85 },
+  { name: "Flutter", icon: "bi bi-phone", color: "text-primary", percentage: 90 },
+  { name: "JavaScript", icon: "bi bi-filetype-js", color: "text-info", percentage: 80 },
+  { name: "Tailwind CSS", icon: "bi bi-filetype-css", color: "text-primary", percentage: 95 },
+  { name: "Django", icon: "bi bi-currency-dollar", color: "text-success", percentage: 85 },
+  { name: "Node.js", icon: "bi bi-diagram-2", color: "text-success", percentage: 95 },
+];
+
+const SkillBar = ({ skill }: { skill: typeof skillsData[0] }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [currentPercentage, setCurrentPercentage] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          // Reset to 0 when it leaves the viewport
+          setIsVisible(false);
+          setCurrentPercentage(0);
+        }
+      },
+      { threshold: 0.1 } // Triggers when at least 10% is visible
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => {
+      if (ref.current) observer.unobserve(ref.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (isVisible) {
+      let start = 0;
+      const end = skill.percentage;
+      const duration = 1500; // 1.5 seconds for moderate speed
+      const increment = end / (duration / 20);
+
+      timer = setInterval(() => {
+        start += increment;
+        if (start >= end) {
+          setCurrentPercentage(end);
+          clearInterval(timer);
+        } else {
+          setCurrentPercentage(Math.round(start));
+        }
+      }, 20);
+    } else {
+      setCurrentPercentage(0);
+    }
+    return () => clearInterval(timer);
+  }, [isVisible, skill.percentage]);
+
+  return (
+    <div className="col-md-6 mb-4" ref={ref}>
+      <div className="d-flex align-items-center mb-2">
+        <i className={`${skill.icon} fs-4 me-2 ${skill.color}`}></i>
+        <h6 className="mb-0 me-auto">{skill.name}</h6>
+        <span className="fw-bold">{currentPercentage}%</span>
+      </div>
+      <div className="progress" style={{ height: "10px" }}>
+        <div
+          className="progress-bar custom-gradient-progress"
+          role="progressbar"
+          style={{
+            width: `${isVisible ? skill.percentage : 0}%`,
+            transition: "width 1.5s ease-out",
+          }}
+          aria-valuenow={currentPercentage}
+          aria-valuemin={0}
+          aria-valuemax={100}
+        ></div>
+      </div>
+    </div>
+  );
+};
+
 export default function Skills() {
   return (
     <section id="skills" className="skills section bg-light py-5">
@@ -13,131 +99,9 @@ export default function Skills() {
         <div className="row skills-content justify-content-center">
           <div className="col-lg-10">
             <div className="row">
-              <div className="col-md-6 mb-4">
-                <div className="d-flex align-items-center mb-2">
-                  <i className="bi bi-filetype-jsx fs-4 me-2 text-primary"></i>
-                  <h6 className="mb-0 me-auto">React.js</h6>
-                  <span className="fw-bold">90%</span>
-                </div>
-                <div className="progress" style={{ height: "10px" }}>
-                  <div
-                    className="progress-bar custom-gradient-progress"
-                    role="progressbar"
-                    style={{ width: "90%" }}
-                    aria-valuenow={90}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                  ></div>
-                </div>
-              </div>
-
-              <div className="col-md-6 mb-4">
-                <div className="d-flex align-items-center mb-2">
-                  <i className="bi bi-filetype-jsx fs-4 me-2 text-info"></i>
-                  <h6 className="mb-0 me-auto">Next.js</h6>
-                  <span className="fw-bold">85%</span>
-                </div>
-                <div className="progress" style={{ height: "10px" }}>
-                  <div
-                    className="progress-bar custom-gradient-progress"
-                    role="progressbar"
-                    style={{ width: "85%" }}
-                    aria-valuenow={85}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                  ></div>
-                </div>
-              </div>
-
-              <div className="col-md-6 mb-4">
-                <div className="d-flex align-items-center mb-2">
-                  <i className="bi bi-phone fs-4 me-2 text-primary"></i>
-                  <h6 className="mb-0 me-auto">Flutter</h6>
-                  <span className="fw-bold">90%</span>
-                </div>
-                <div className="progress" style={{ height: "10px" }}>
-                  <div
-                    className="progress-bar custom-gradient-progress"
-                    role="progressbar"
-                    style={{ width: "90%" }}
-                    aria-valuenow={90}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                  ></div>
-                </div>
-              </div>
-
-              <div className="col-md-6 mb-4">
-                <div className="d-flex align-items-center mb-2">
-                  <i className="bi bi-filetype-js fs-4 me-2 text-info"></i>
-                  <h6 className="mb-0 me-auto">JavaScript</h6>
-                  <span className="fw-bold">80%</span>
-                </div>
-                <div className="progress" style={{ height: "10px" }}>
-                  <div
-                    className="progress-bar custom-gradient-progress"
-                    role="progressbar"
-                    style={{ width: "80%" }}
-                    aria-valuenow={80}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                  ></div>
-                </div>
-              </div>
-
-              <div className="col-md-6 mb-4">
-                <div className="d-flex align-items-center mb-2">
-                  <i className="bi bi-filetype-css fs-4 me-2 text-primary"></i>
-                  <h6 className="mb-0 me-auto">Tailwind CSS</h6>
-                  <span className="fw-bold">95%</span>
-                </div>
-                <div className="progress" style={{ height: "10px" }}>
-                  <div
-                    className="progress-bar custom-gradient-progress"
-                    role="progressbar"
-                    style={{ width: "95%" }}
-                    aria-valuenow={95}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                  ></div>
-                </div>
-              </div>
-
-              <div className="col-md-6 mb-4">
-                <div className="d-flex align-items-center mb-2">
-                  <i className="bi bi-currency-dollar fs-4 me-2 text-success"></i>
-                  <h6 className="mb-0 me-auto">Django</h6>
-                  <span className="fw-bold">85%</span>
-                </div>
-                <div className="progress" style={{ height: "10px" }}>
-                  <div
-                    className="progress-bar custom-gradient-progress"
-                    role="progressbar"
-                    style={{ width: "85%" }}
-                    aria-valuenow={85}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                  ></div>
-                </div>
-              </div>
-
-              <div className="col-md-6 mb-4">
-                <div className="d-flex align-items-center mb-2">
-                  <i className="bi bi-diagram-2 fs-4 me-2 text-success"></i>
-                  <h6 className="mb-0 me-auto">Node.js</h6>
-                  <span className="fw-bold">95%</span>
-                </div>
-                <div className="progress" style={{ height: "10px" }}>
-                  <div
-                    className="progress-bar custom-gradient-progress"
-                    role="progressbar"
-                    style={{ width: "95%" }}
-                    aria-valuenow={95}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                  ></div>
-                </div>
-              </div>
+              {skillsData.map((skill, index) => (
+                <SkillBar key={index} skill={skill} />
+              ))}
             </div>
           </div>
         </div>
@@ -146,39 +110,17 @@ export default function Skills() {
             <div className="card shadow-sm border-0 p-4 custom-other-tech-card">
               <h4 className="mb-4">Other Technologies</h4>
               <div className="d-flex flex-wrap gap-2">
-                <span className="badge bg-secondary text-white py-2 px-3 fs-6">
-                  JavaScript
-                </span>
-                <span className="badge bg-secondary text-white py-2 px-3 fs-6">
-                  HTML5
-                </span>
-                <span className="badge bg-secondary text-white py-2 px-3 fs-6">
-                  CSS3
-                </span>
-                <span className="badge bg-secondary text-white py-2 px-3 fs-6">
-                  Express
-                </span>
-                <span className="badge bg-secondary text-white py-2 px-3 fs-6">
-                  shadcn/ui
-                </span>
-                <span className="badge bg-secondary text-white py-2 px-3 fs-6">
-                  Python
-                </span>
-                <span className="badge bg-secondary text-white py-2 px-3 fs-6">
-                  Firebase
-                </span>
-                <span className="badge bg-secondary text-white py-2 px-3 fs-6">
-                  SQL
-                </span>
-                <span className="badge bg-secondary text-white py-2 px-3 fs-6">
-                  Material UI
-                </span>
-                <span className="badge bg-secondary text-white py-2 px-3 fs-6">
-                  REST API
-                </span>
-                <span className="badge bg-secondary text-white py-2 px-3 fs-6">
-                  Figma
-                </span>
+                <span className="badge bg-secondary text-white py-2 px-3 fs-6">JavaScript</span>
+                <span className="badge bg-secondary text-white py-2 px-3 fs-6">HTML5</span>
+                <span className="badge bg-secondary text-white py-2 px-3 fs-6">CSS3</span>
+                <span className="badge bg-secondary text-white py-2 px-3 fs-6">Express</span>
+                <span className="badge bg-secondary text-white py-2 px-3 fs-6">shadcn/ui</span>
+                <span className="badge bg-secondary text-white py-2 px-3 fs-6">Python</span>
+                <span className="badge bg-secondary text-white py-2 px-3 fs-6">Firebase</span>
+                <span className="badge bg-secondary text-white py-2 px-3 fs-6">SQL</span>
+                <span className="badge bg-secondary text-white py-2 px-3 fs-6">Material UI</span>
+                <span className="badge bg-secondary text-white py-2 px-3 fs-6">REST API</span>
+                <span className="badge bg-secondary text-white py-2 px-3 fs-6">Figma</span>
               </div>
             </div>
           </div>

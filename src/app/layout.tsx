@@ -63,6 +63,15 @@ export default function RootLayout({
           href="/assets/vendor/swiper/swiper-bundle.min.css"
         />
         <link rel="stylesheet" href="/assets/css/main.css" />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/assets/img/dagi_logo_transparent.png"
+        />
+        <link
+          rel="shortcut icon"
+          href="/assets/img/dagi_logo_transparent.png"
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
